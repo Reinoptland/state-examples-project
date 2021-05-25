@@ -5,9 +5,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <User username="Rein" />
-        <User username="Maria" />
-        <User username="Bernard" />
+        <User />
+        <User />
+        <User />
       </header>
     </div>
   );
