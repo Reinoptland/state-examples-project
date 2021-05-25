@@ -1,4 +1,6 @@
 import { useState } from "react";
+import PlayerForm from "./PlayerForm";
+import PlayerScore from "./PlayerScore";
 
 function User() {
   // score: getter
@@ -6,7 +8,7 @@ function User() {
   // useState(0) -> state initialiseren: beginwaarde: 0
   // useState is een hook: te zien aan begint met: "use"
   const [score, setScore] = useState(0);
-  const [name, setName] = useState("Rein");
+  const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("🤪");
   const [editMode, setEditmode] = useState(false);
 
@@ -19,28 +21,21 @@ function User() {
   return (
     <div>
       {editMode && (
-        <div>
-          <label>playername</label>
-          <input
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-          <button onClick={() => setEditmode(false)}>submit</button>
-          <select
-            value={avatar}
-            onChange={(event) => setAvatar(event.target.value)}
-          >
-            <option>🤪</option>
-            <option>💪</option>
-            <option>🥵</option>
-          </select>
-        </div>
+        <PlayerForm
+          name={name}
+          avatar={avatar}
+          setAvatar={setAvatar}
+          setName={setName}
+          setEditmode={setEditmode}
+        />
       )}
-      {avatar} - {name}: {score}
-      {score === 10 && <p>Jij bent de winnaar</p>}
-      <button onClick={() => setScore(score + 1)}>+</button>
-      <button onClick={() => setScore(score - 1)}>-</button>
-      <button onClick={() => setEditmode(!editMode)}>✍️</button>
+      <PlayerScore
+        avatar={avatar}
+        name={name}
+        score={score}
+        setScore={setScore}
+        setEditmode={setEditmode}
+      />
     </div>
   );
 }
