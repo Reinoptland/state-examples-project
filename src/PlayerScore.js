@@ -1,11 +1,11 @@
-function PlayerScore(props) {
+function PlayerScore({ avatar, name, score, setScore, setEditmode, editMode }) {
   return (
     <div>
-      {props.avatar} - {props.name}: {props.score}
-      {props.score === 10 && <p>Jij bent de winnaar</p>}
-      <button onClick={() => props.setScore(props.score + 1)}>+</button>
-      <button onClick={() => props.setScore(props.score - 1)}>-</button>
-      <button onClick={() => props.setEditmode(!props.editMode)}>✍️</button>
+      {avatar} - {name}: {score}
+      {score === 10 && <p>Jij bent de winnaar</p>}
+      <button onClick={() => setScore(score + 1)}>+</button>
+      <button onClick={() => setScore(score - 1)}>-</button>
+      <button onClick={() => setEditmode(!editMode)}>✍️</button>
     </div>
   );
 }

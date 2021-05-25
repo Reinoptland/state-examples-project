@@ -33,6 +33,7 @@ function User() {
           avatar={avatar}
           name={name}
           score={score}
+          editMode={editMode}
           setScore={setScore}
           setEditmode={setEditmode}
         />
