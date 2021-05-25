@@ -10,6 +10,12 @@ function User(props) {
   return (
     <div>
       {props.username}: {score}
+      {score === 10 && <p>Jij bent de winnaar</p>}
+      {score === 10 ? (
+        <p>Jij bent de winnaar</p>
+      ) : (
+        <p>Jij moet beter je best doen</p>
+      )}
       <button onClick={() => setScore(score + 1)}>+</button>
       <button onClick={() => setScore(score - 1)}>-</button>
     </div>
