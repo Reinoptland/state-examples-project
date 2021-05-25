@@ -20,7 +20,7 @@ function User() {
 
   return (
     <div>
-      {editMode && (
+      {editMode ? (
         <PlayerForm
           name={name}
           avatar={avatar}
@@ -28,14 +28,15 @@ function User() {
           setName={setName}
           setEditmode={setEditmode}
         />
+      ) : (
+        <PlayerScore
+          avatar={avatar}
+          name={name}
+          score={score}
+          setScore={setScore}
+          setEditmode={setEditmode}
+        />
       )}
-      <PlayerScore
-        avatar={avatar}
-        name={name}
-        score={score}
-        setScore={setScore}
-        setEditmode={setEditmode}
-      />
     </div>
   );
 }
